@@ -19,11 +19,13 @@ html {
    * Remove the margin in all browsers.
    */
 
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: 'Jost', sans-serif;
+  background: rgba(42, 47, 55, 0.02);
 }
-
 /**
    * Render the `main` element consistently in IE.
    */

@@ -1,5 +1,6 @@
 .page_wrapper {
   display: flex;
+  flex-direction: column;
   height: 100vh;
   flex: 1 1 auto;
 }
@@ -13,4 +14,10 @@
 .content_wrapper {
   padding: 10px;
   height: 100vh;
+}
+
+.page_container {
+  width: 1170px;
+  margin-left: 375px;
+  display: flex;
 }
