@@ -1,15 +1,15 @@
-.page_wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  flex: 1 1 auto;
-}
+// .page_wrapper {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100vh;
+//   flex: 1 1 auto;
+// }
 
-.section_wrapper {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-}
+// .section_wrapper {
+//   display: flex;
+//   width: 100%;
+//   flex-direction: column;
+// }
 
 .content_wrapper {
   padding: 10px;
@@ -19,5 +19,6 @@
 .page_container {
   width: 1170px;
   margin-left: 375px;
+  margin-top: 40px;
   display: flex;
 }
