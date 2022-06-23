@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import style from '../AdvPage.module.scss';
 
 interface IProps {
   itemname: string;
@@ -9,10 +10,10 @@ interface IProps {
 
 const ItemCard: FC<IProps> = ({ itemname, category, date, publishing }) => {
   return (
-    <div>
-      <div>{itemname}</div>
-      <div>{category}</div>
-      <div>{date}</div>
+    <div className={style.advpagecom_block}>
+      <div className={style.advpagecom_block_itemname}>{itemname}</div>
+      <div className={style.advpagecom_block_itemcat}>{category}</div>
+      <div className={style.advpagecom_block_itemdate}>{date}</div>
       <div>{publishing}</div>
     </div>
   );

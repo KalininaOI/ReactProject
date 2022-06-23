@@ -4,3 +4,67 @@
   height: 88px;
   border-bottom: solid 1px #2a2f371a;
 }
+
+.advPage_search_pagination_block {
+  height: 88px;
+}
+
+.advPage_tab_header {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 40px;
+  color: rgba(44, 45, 46);
+  opacity: 0.6;
+  padding-left: 24px;
+  gap: 24px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 12px;
+
+  &_name {
+    display: flex;
+    width: 256px;
+    gap: 8px;
+
+    &_arr {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 10px;
+      padding-top: 5px;
+    }
+  }
+
+  &_cat {
+    width: 178px;
+  }
+
+  &_date {
+    width: 175px;
+  }
+}
+
+.advpagecom_block {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 80px;
+  color: rgba(44, 45, 46);
+  padding-left: 24px;
+  gap: 24px;
+  margin-bottom: 8px;
+  font-weight: 400;
+  font-size: 14px;
+
+  &_itemname {
+    width: 256px;
+    font-weight: 700;
+  }
+  &_itemcat {
+    width: 178px;
+  }
+  &_itemdate {
+    width: 175px;
+  }
+}

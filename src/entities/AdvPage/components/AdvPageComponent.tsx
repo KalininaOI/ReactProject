@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { IItems } from '../../../interfaces/IItems';
 import ItemCard from './ItemCard';
+import style from '../AdvPage.module.scss';
 
 interface IProps {
   itemCardAtr: IItems[];
