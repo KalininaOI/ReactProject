@@ -47,16 +47,29 @@
 
   &__pages {
     display: flex;
+    align-items: center;
     height: 72px;
     border-bottom: solid 1px #2a2f371a;
+    list-style: none;
+    padding-left: 0px;
+    margin: 0px;
+
+    &_list {
+      display: flex;
+      padding-left: 24px;
+      padding-top: 8px;
+    }
   }
 
   &__exit {
     display: flex;
+    align-items: center;
     height: 72px;
+    margin: 0px;
   }
 }
 
-// .active {
-//   font-weight: 700;
-// }
+.active {
+  height: 40px;
+  border-left: 3px solid rgba(72, 119, 242);
+}

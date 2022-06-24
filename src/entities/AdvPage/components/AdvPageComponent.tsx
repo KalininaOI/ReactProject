@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { IItems } from '../../../interfaces/IItems';
+import DropDown from './DropDownMenu';
 import ItemCard from './ItemCard';
-import style from '../AdvPage.module.scss';
 
 interface IProps {
   itemCardAtr: IItems[];
@@ -21,6 +21,7 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
                 date={date}
                 publishing={publishing}
               />
+              <DropDown label />
             </React.Fragment>
           );
         })

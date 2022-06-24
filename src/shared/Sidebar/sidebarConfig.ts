@@ -5,9 +5,4 @@ export const sidebarConfig = [
     name: 'Объявления',
     path: '/advertisements',
   },
-  {
-    id: 2,
-    name: 'Выход',
-    path: '/test_page',
-  },
 ];
