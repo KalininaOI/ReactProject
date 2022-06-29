@@ -1,6 +1,5 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import DropDown from '../DropDownMenu/DropDownMenu';
 import ItemCard from './ItemCard';
 import style from '../../AdvPage.module.scss';
 import Pagination from '../../../../shared/Pagination';
@@ -17,7 +16,12 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
 
   const currentPageNumber = new URLSearchParams(search).get('page');
 
-  const paginatedUserData = itemCardAtr.slice(
+  const [value, setValue] = useState('');
+  const filteredItems = itemCardAtr.filter((elem) => {
+    return elem.itemname.toLowerCase().includes(value.toLowerCase());
+  });
+
+  const paginatedUserData = filteredItems.slice(
     (Number(currentPageNumber) - 1) * 8,
     Number(currentPageNumber) * 8
   );
@@ -40,14 +44,22 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
         <div>
           <h1>Объявления</h1>
           <div className={style.advpage_header_amount}>
-            <p>Всего: {itemCardAtr.length} </p>
+            <p>Всего: {filteredItems.length} </p>
           </div>
         </div>
         <button type="button">Добавить +</button>
       </div>
       <div className={style.advPage_search_pagination_block}>
-        <div>Search </div>
-        <Pagination limit={8} itemsAmount={itemCardAtr.length} />
+        <div className={style.search}>
+          <input
+            type="text"
+            placeholder="Найти объявление"
+            onChange={(event) => setValue(event.target.value)}
+            className={style.search_input}
+          />
+          <Imges imgName="Search" />
+        </div>
+        <Pagination limit={8} itemsAmount={filteredItems.length} />
       </div>
       <div className={style.advPage_tab_header}>
         <div className={style.advPage_tab_header_name}>
@@ -65,6 +77,7 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
         {paginatedUserData.length ? (
           paginatedUserData.map((item) => {
             const { id, itemname, category, date } = item;
+
             return (
               <React.Fragment key={`ItemId:${id}`}>
                 <ItemCard itemname={itemname} category={category} date={date} />
@@ -72,6 +85,7 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
             );
           })
         ) : (
+          // })
           <div>Объявлений нет</div>
         )}
       </div>

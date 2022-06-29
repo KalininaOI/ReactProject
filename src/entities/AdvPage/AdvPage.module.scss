@@ -12,7 +12,7 @@
   height: 88px;
   display: flex;
   justify-content: space-between;
-  margin-top: 24px;
+  align-items: center;
 }
 
 .advPage_tab_header {
@@ -48,5 +48,22 @@
 
   &_date {
     width: 175px;
+  }
+}
+
+.search {
+  height: 40px;
+  width: 420px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 11px;
+
+  &_input {
+    padding-left: 16px;
+    border: 0px;
+    height: 24px;
+    outline: 0px;
   }
 }
