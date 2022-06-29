@@ -7,7 +7,6 @@ import PageLayout from './layouts/PageLayout';
 const App = () => {
   return (
     <PageLayout>
-      {/* <AdvPage /> */}
       <Routes>
         <Route path="/" element={<AdvPage />} />
         <Route path="advertisements" element={<AdvPage />} />

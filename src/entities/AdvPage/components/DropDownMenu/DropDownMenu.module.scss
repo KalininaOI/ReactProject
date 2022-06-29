@@ -1,0 +1,17 @@
+.DDBtn {
+  height: 32px;
+  width: 32px;
+  background-color: white;
+  cursor: pointer;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.DDMenu {
+  height: 136px;
+  width: 242px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}

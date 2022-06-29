@@ -1,0 +1,29 @@
+.advpagecom_block {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 80px;
+  color: rgba(44, 45, 46);
+  padding-left: 24px;
+  gap: 24px;
+  margin-bottom: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+
+  &_itemname {
+    width: 256px;
+    font-weight: 700;
+  }
+  &_itemcat {
+    width: 178px;
+  }
+  &_itemdate {
+    width: 175px;
+  }
+  &_itempubl {
+    width: 72px;
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -3,10 +3,16 @@
   justify-content: space-between;
   height: 88px;
   border-bottom: solid 1px #2a2f371a;
+  &_amount {
+    display: flex;
+  }
 }
 
 .advPage_search_pagination_block {
   height: 88px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
 }
 
 .advPage_tab_header {
@@ -41,30 +47,6 @@
   }
 
   &_date {
-    width: 175px;
-  }
-}
-
-.advpagecom_block {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  height: 80px;
-  color: rgba(44, 45, 46);
-  padding-left: 24px;
-  gap: 24px;
-  margin-bottom: 8px;
-  font-weight: 400;
-  font-size: 14px;
-
-  &_itemname {
-    width: 256px;
-    font-weight: 700;
-  }
-  &_itemcat {
-    width: 178px;
-  }
-  &_itemdate {
     width: 175px;
   }
 }
