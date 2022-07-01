@@ -1,10 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import ItemCard from './ItemCard';
 import style from '../../AdvPage.module.scss';
 import Pagination from '../../../../shared/Pagination';
 import Imges from '../../../../shared/Imges/Imges';
 import { IItems } from '../../../../interfaces/IItems';
+import { getItemsData } from '../../../../store/pages/AdvPage/selectors';
+import { mockedItems } from '../../../../mocks/mockedItems';
+import { setItemsDataAction } from '../../../../store/pages/AdvPage/actions';
 
 interface IProps {
   itemCardAtr: IItems[];
@@ -13,6 +17,11 @@ interface IProps {
 const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
   const { pathname, search } = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // const getData = () => {
+  //   dispatch(setItemsDataAction(mockedItems));
+  // };
 
   const currentPageNumber = new URLSearchParams(search).get('page');
 
@@ -27,6 +36,10 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
   );
 
   useEffect(() => {
+    dispatch(setItemsDataAction(mockedItems));
+  }, []);
+
+  useEffect(() => {
     if (pathname === '/') {
       navigate('/advertisements');
     }
@@ -38,6 +51,8 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
     }
   }, [pathname, navigate, search]);
 
+  const appState = useSelector(getItemsData);
+
   return (
     <>
       <div className={style.advpage_header}>
@@ -47,7 +62,9 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
             <p>Всего: {filteredItems.length} </p>
           </div>
         </div>
-        <button type="button">Добавить +</button>
+        <button type="button" onClick={() => navigate('create_new_advertisement')}>
+          Добавить +
+        </button>
       </div>
       <div className={style.advPage_search_pagination_block}>
         <div className={style.search}>
@@ -85,7 +102,6 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
             );
           })
         ) : (
-          // })
           <div>Объявлений нет</div>
         )}
       </div>

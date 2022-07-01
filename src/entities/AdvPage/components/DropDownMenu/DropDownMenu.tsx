@@ -1,4 +1,5 @@
 import React, { ReactNode, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Imges from '../../../../shared/Imges/Imges';
 import style from './DropDownMenu.module.scss';
 
@@ -8,7 +9,9 @@ type Props = {
 
 const DropDown = (props: Props) => {
   const { label } = props;
-  const [isOpen, setOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
+  const [Open, setOpen] = useState<boolean>(false);
+  // const close = () => setOpen(false);
   const handleOpen = () => setOpen(true);
   return (
     <div>
@@ -16,11 +19,23 @@ const DropDown = (props: Props) => {
         <Imges imgName="DDBtn" />
         {label}
       </button>
-      {isOpen && (
+      {Open && (
         <div className={style.DDMenu}>
-          <div>Посмотреть</div>
-          <div>Редактировать</div>
-          <div>Удалить</div>
+          <button type="button" className={style.DDMenu_item}>
+            <Imges imgName="ShowLogo" />
+            Посмотреть
+          </button>
+          <button
+            type="button"
+            className={style.DDMenu_item}
+            onClick={() => navigate('edit_advertisement')}>
+            <Imges imgName="EditLogo" />
+            Редактировать
+          </button>
+          <button type="button" className={style.DDMenu_item_delete}>
+            <Imges imgName="DeleteLogo" />
+            Удалить
+          </button>
         </div>
       )}
     </div>

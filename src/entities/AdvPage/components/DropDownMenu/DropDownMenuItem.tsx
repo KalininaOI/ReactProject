@@ -1,16 +1,14 @@
-import React from 'react';
+import React, { forwardRef, HTMLAttributes, PropsWithChildren } from 'react';
 
-// type Props = {
-//   open: boolean;
-//   setOpen: (v: boolean) => void;
-// };
+type Props = {
+  active: boolean;
+  //   disabled: boolean;
+  //   value: any;
+  //   onClick?(): void;
+} & HTMLAttributes<HTMLDivElement>;
 
-// const Hamburger = (props: Props) => (
-//   <div open={props.open} onClick={() => props.setOpen(!props.open)}>
-//     <div />
-//     <div />
-//     <div />
-//   </div>
-// );
+export const MenuItem = forwardRef<HTMLDivElement, PropsWithChildren<Props>>((props, ref) => {
+  const { active } = props;
 
-// export default Hamburger;
+  return <div ref={ref}>{props.children}</div>;
+});
