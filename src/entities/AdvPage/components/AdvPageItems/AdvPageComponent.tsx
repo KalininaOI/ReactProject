@@ -1,27 +1,26 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, FormEvent, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import ItemCard from './ItemCard';
 import style from '../../AdvPage.module.scss';
 import Pagination from '../../../../shared/Pagination';
 import Imges from '../../../../shared/Imges/Imges';
 import { IItems } from '../../../../interfaces/IItems';
-import { getItemsData } from '../../../../store/pages/AdvPage/selectors';
-import { mockedItems } from '../../../../mocks/mockedItems';
-import { setItemsDataAction } from '../../../../store/pages/AdvPage/actions';
+import { createItemAction } from '../../../../store/pages/AdvPage/actions';
 
 interface IProps {
   itemCardAtr: IItems[];
 }
 
 const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
-  const { pathname, search } = useLocation();
+  const { search } = useLocation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  // const getData = () => {
-  //   dispatch(setItemsDataAction(mockedItems));
-  // };
+  // const [itemNameValue, setItemNameValue] = useState('');
+  // const [categoryValue, setCategoryValue] = useState('');
+  // const [dateValue, setDateValue] = useState('');
+  // const [priceValue, setPriceValue] = useState('');
 
   const currentPageNumber = new URLSearchParams(search).get('page');
 
@@ -35,23 +34,18 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
     Number(currentPageNumber) * 8
   );
 
-  useEffect(() => {
-    dispatch(setItemsDataAction(mockedItems));
-  }, []);
+  // const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
 
-  useEffect(() => {
-    if (pathname === '/') {
-      navigate('/advertisements');
-    }
-    if (search.includes('?page=0')) {
-      navigate('?page=1');
-    }
-    if (!search) {
-      navigate('?page=1');
-    }
-  }, [pathname, navigate, search]);
-
-  const appState = useSelector(getItemsData);
+  //   const newItem = {
+  //     id: filteredItems.length + 1,
+  //     itemname: itemNameValue,
+  //     category: categoryValue,
+  //     date: dateValue,
+  //     price: Number(priceValue),
+  //   };
+  //   dispatch(createItemAction(newItem));
+  // };
 
   return (
     <>
@@ -105,6 +99,34 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
           <div>Объявлений нет</div>
         )}
       </div>
+
+      {/* <form onSubmit={handleFormSubmit}>
+        <input
+          type="text"
+          placeholder="itemName"
+          value={itemNameValue}
+          onChange={(event) => setItemNameValue(event.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="category"
+          value={categoryValue}
+          onChange={(event) => setCategoryValue(event.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="date"
+          value={dateValue}
+          onChange={(event) => setDateValue(event.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="price"
+          value={priceValue}
+          onChange={(event) => setPriceValue(event.target.value)}
+        />
+        <button type="submit">create</button>
+      </form> */}
     </>
   );
 };

@@ -3,10 +3,10 @@ export interface IItems {
   itemname: string;
   category: string;
   price: number;
-  phone: string;
+  phone?: string;
   discribe?: string;
   photo?: string;
   date: string;
   location?: string;
-  publishing: boolean;
+  publishing?: boolean;
 }
