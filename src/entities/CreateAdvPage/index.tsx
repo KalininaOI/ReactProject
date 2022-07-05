@@ -1,9 +1,8 @@
 import React, { FormEvent, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Imges from '../../shared/Imges/Imges';
 import { createItemAction } from '../../store/pages/AdvPage/actions';
-import { getItemsData } from '../../store/pages/AdvPage/selectors';
 import style from './CreateAdvPage.module.scss';
 
 const CreateAdvPage = () => {

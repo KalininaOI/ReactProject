@@ -1,9 +1,10 @@
 import { IItems } from '../../../interfaces/IItems';
+import { mockedItems } from '../../../mocks/mockedItems';
 import { CREATE_ITEM, SET_ITEMS_DATA } from './actions';
 import { IItemsState, ItemsReducerAction } from './interfaces';
 
 const initialState: IItemsState = {
-  itemsData: [],
+  itemsData: mockedItems,
   loading: false,
   error: null,
 };

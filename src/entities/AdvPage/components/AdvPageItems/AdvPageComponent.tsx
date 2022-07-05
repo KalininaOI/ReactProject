@@ -1,12 +1,10 @@
-import React, { FC, FormEvent, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import ItemCard from './ItemCard';
 import style from '../../AdvPage.module.scss';
 import Pagination from '../../../../shared/Pagination';
 import Imges from '../../../../shared/Imges/Imges';
 import { IItems } from '../../../../interfaces/IItems';
-import { createItemAction } from '../../../../store/pages/AdvPage/actions';
 
 interface IProps {
   itemCardAtr: IItems[];
@@ -15,12 +13,6 @@ interface IProps {
 const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
   const { search } = useLocation();
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-
-  // const [itemNameValue, setItemNameValue] = useState('');
-  // const [categoryValue, setCategoryValue] = useState('');
-  // const [dateValue, setDateValue] = useState('');
-  // const [priceValue, setPriceValue] = useState('');
 
   const currentPageNumber = new URLSearchParams(search).get('page');
 
@@ -29,23 +21,10 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
     return elem.itemname.toLowerCase().includes(value.toLowerCase());
   });
 
-  const paginatedUserData = filteredItems.slice(
+  const paginatedItemData = filteredItems.slice(
     (Number(currentPageNumber) - 1) * 8,
     Number(currentPageNumber) * 8
   );
-
-  // const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-
-  //   const newItem = {
-  //     id: filteredItems.length + 1,
-  //     itemname: itemNameValue,
-  //     category: categoryValue,
-  //     date: dateValue,
-  //     price: Number(priceValue),
-  //   };
-  //   dispatch(createItemAction(newItem));
-  // };
 
   return (
     <>
@@ -85,8 +64,8 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
         <div className={style.advPage_tab_header_publ}>Публикация</div>
       </div>
       <div>
-        {paginatedUserData.length ? (
-          paginatedUserData.map((item) => {
+        {paginatedItemData.length ? (
+          paginatedItemData.map((item) => {
             const { id, itemname, category, date } = item;
 
             return (
