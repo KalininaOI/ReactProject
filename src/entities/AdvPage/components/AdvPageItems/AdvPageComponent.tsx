@@ -70,7 +70,7 @@ const AdvPageComponent: FC<IProps> = ({ itemCardAtr }) => {
 
             return (
               <React.Fragment key={`ItemId:${id}`}>
-                <ItemCard itemname={itemname} category={category} date={date} />
+                <ItemCard id={id} itemname={itemname} category={category} date={date} />
               </React.Fragment>
             );
           })

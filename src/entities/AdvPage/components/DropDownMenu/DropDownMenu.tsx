@@ -1,14 +1,15 @@
-import React, { ReactNode, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { FC, ReactNode, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { IItems } from '../../../../interfaces/IItems';
 import Imges from '../../../../shared/Imges/Imges';
 import style from './DropDownMenu.module.scss';
 
-type Props = {
+type IProps = {
   label: ReactNode;
+  id: number;
 };
 
-const DropDown = (props: Props) => {
-  const { label } = props;
+const DropDown: FC<IProps> = ({ id, label }) => {
   const navigate = useNavigate();
   const [Open, setOpen] = useState<boolean>(false);
   // const close = () => setOpen(false);
@@ -25,12 +26,9 @@ const DropDown = (props: Props) => {
             <Imges imgName="ShowLogo" />
             Посмотреть
           </button>
-          <button
-            type="button"
-            className={style.DDMenu_item}
-            onClick={() => navigate('edit_advertisement')}>
+          <button type="button" className={style.DDMenu_item}>
             <Imges imgName="EditLogo" />
-            Редактировать
+            <Link to={`edit_advertisement/${id}`}>Подробная информация</Link>
           </button>
           <button type="button" className={style.DDMenu_item_delete}>
             <Imges imgName="DeleteLogo" />
