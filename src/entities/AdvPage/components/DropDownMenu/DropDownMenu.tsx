@@ -7,9 +7,10 @@ import style from './DropDownMenu.module.scss';
 type IProps = {
   label: ReactNode;
   id: number;
+  itemName: string;
 };
 
-const DropDown: FC<IProps> = ({ id, label }) => {
+const DropDown: FC<IProps> = ({ id, label, itemName }) => {
   const navigate = useNavigate();
   const [Open, setOpen] = useState<boolean>(false);
   // const close = () => setOpen(false);
@@ -26,9 +27,12 @@ const DropDown: FC<IProps> = ({ id, label }) => {
             <Imges imgName="ShowLogo" />
             Посмотреть
           </button>
-          <button type="button" className={style.DDMenu_item}>
+          <button
+            type="button"
+            className={style.DDMenu_item}
+            onClick={() => navigate(`edit_advertisement/${id}`)}>
             <Imges imgName="EditLogo" />
-            <Link to={`edit_advertisement/${id}`}>Подробная информация</Link>
+            Редактировать
           </button>
           <button type="button" className={style.DDMenu_item_delete}>
             <Imges imgName="DeleteLogo" />

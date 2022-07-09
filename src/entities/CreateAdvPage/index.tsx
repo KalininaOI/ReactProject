@@ -94,9 +94,9 @@ const CreateAdvPage = () => {
             <h2>Описание</h2>
             <input
               type="text"
-              className={`${style.CAD_input_wide} ${style.CAD_input}`}
+              className={`${style.CAD_input_big} ${style.CAD_input}`}
               placeholder="Введите текст (до 3000 символов)"
-              maxLength={10}
+              maxLength={3000}
               value={discribeValue}
               onChange={(event) => setDiscribeValue(event.target.value)}
             />
@@ -106,7 +106,6 @@ const CreateAdvPage = () => {
             <input
               type="file"
               className={`${style.CAD_input_wide} ${style.CAD_input}`}
-              placeholder="Введите текст (до 3000 символов)"
               value={photoValue}
               onChange={(event) => setPhotoValue(event.target.value)}
             />

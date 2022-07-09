@@ -16,7 +16,7 @@ const ItemCard: FC<IProps> = ({ id, itemname, category, date }) => {
       <div className={style.advpagecom_block_itemcat}>{category}</div>
       <div className={style.advpagecom_block_itemdate}>{date}</div>
       <div className={style.advpagecom_block_itempubl}>Да</div>
-      <DropDown label={undefined} id={id} />
+      <DropDown label={undefined} id={id} itemName={itemname} />
     </div>
   );
 };

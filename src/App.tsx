@@ -13,7 +13,7 @@ const App = () => {
         <Route path="/" element={<AdvPage />} />
         <Route path="advertisements" element={<AdvPage />} />
         <Route path="advertisements/create_new_advertisement" element={<CreateAdvPage />} />
-        <Route path="advertisements/edit_advertisement/:id" element={<EditAdvPage />} />
+        {/* <Route path="advertisements/edit_advertisement/:id" element={<EditAdvPage />} /> */}
       </Routes>
     </PageLayout>
   );
